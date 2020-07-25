@@ -1,0 +1,13 @@
+{
+  "name": "reviews.comments",
+  "version": "1.7.2",
+  "main": "",
+  "ignore": [
+    "source",
+    ".gitignore",
+    ".idea",
+    "bower.json",
+    "gulpfile.js",
+    "package.json"
+  ]
+}

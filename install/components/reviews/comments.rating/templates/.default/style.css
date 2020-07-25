@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 28/6/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
+.reviews-comments-rating
+{
+	font-size: 14px;
+	font-family: Verdana;
+}
+
+.reviews-comments-rating .reviews-comments-rating,
+.reviews-comments-rating .reviews-comments-count
+{
+	display: inline-block;
+}
+
+.reviews-comments-rating .reviews-comments-count
+{
+	position: relative;
+	top: -5px;
+}
+
+.reviews-comments-rating .reviews-comments-rating-background,
+.reviews-comments-rating .reviews-comments-rating-foreground
+{
+	height: 22px;
+	width: 110px;
+	background: url( '/bitrix/components/reviews/comments/templates/.default/img/stars.png' ) repeat-x;
+}
+
+.reviews-comments-rating .reviews-comments-rating-foreground
+{
+	background-position: 0 -22px;
+}
