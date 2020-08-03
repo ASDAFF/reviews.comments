@@ -395,7 +395,7 @@ $( document ).ready(
 				if ( canDo )
 				{
 					$.post(
-						'/bitrix/modules/reviews.comments/options_ajax.php',
+						'/includes/reviews_ajax.php',
 						{
 							ID: id,
 							ACTION: action
@@ -425,7 +425,7 @@ $( document ).ready(
 				var text = $( this ).parent().find( 'textarea' ).val();
 				
 				$.post(
-					'/bitrix/modules/reviews.comments/options_ajax.php',
+					'/includes/reviews_ajax.php',
 					{
 						ID: id,
 						ACTION: 'ANSWER',

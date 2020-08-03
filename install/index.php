@@ -110,6 +110,7 @@ Class reviews_comments extends CModule
                 closedir($dir);
             }
         }
+        CopyDirFiles($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/' . $this->MODULE_ID . '/install/includes/', $_SERVER['DOCUMENT_ROOT'] . '/includes/', true, true);
         return true;
     }
 
@@ -141,6 +142,7 @@ Class reviews_comments extends CModule
                 closedir($dir);
             }
         }
+        DeleteDirFiles($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/' . $this->MODULE_ID . '/install/includes/', $_SERVER['DOCUMENT_ROOT'] . '/includes/');
         return true;
     }
 
