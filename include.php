@@ -62,20 +62,20 @@
 								("' . $active . '",' . time() . ',"' . $name . '",' . $rating . ',"' . $text . '","' . $url . '","' . $imageId . '",' . $userId . ',"' . $email . '","' . $phone . '","' . $advantage . '","' . $disadvantage . '")');
         }
 
-        function editComment($commentId, $_1067754885, $name, $rating, $text, $_2127864769 = '', $advantage = '', $disadvantage = '')
+        function editComment($commentId, $date, $name, $rating, $text, $answer = '', $advantage = '', $disadvantage = '')
         {
             if (RVWcomments::needConvert() == 'Y') {
                 $name = iconv('UTF-8', 'Windows-1251', $name);
                 $text = iconv('UTF-8', 'Windows-1251', $text);
-                $_2127864769 = iconv('UTF-8', 'Windows-1251', $_2127864769);
+                $answer = iconv('UTF-8', 'Windows-1251', $answer);
                 $advantage = iconv('UTF-8', 'Windows-1251', $advantage);
                 $disadvantage = iconv('UTF-8', 'Windows-1251', $disadvantage);
             }
             $text = str_replace('\\', '/', $text);
-            $_1899366073 = explode('', $_1067754885);
-            $_602473921 = explode('.', $_1899366073[0]);
-            $_309858299 = $_602473921[2] . '-' . $_602473921[1] . '-' . $_602473921[0] . '' . $_1899366073[1];
-            $_1482062631 = strtotime($_309858299);
+            $arTime = explode(' ', $date);
+            $time = explode('.', $arTime[0]);
+            $strDate = $time[2] . '-' . $time[1] . '-' . $time[0] . '' . $arTime[1];
+            $_1482062631 = strtotime($strDate);
             global $DB;
             $imageId = '';
             $_1256108957 = Array();
@@ -126,10 +126,10 @@
             $_465813820 = 'SELECT ID FROM reviews_comments_answers WHERE COMMENT_ID=' . $commentId;
             if ($_1383944156 = $DB->Query($_465813820)) {
                 if ($_121273323 = $_1383944156->Fetch()) {
-                    $_465813820 = 'UPDATE reviews_comments_answers SET TEXT="' . $_2127864769 . '" WHERE COMMENT_ID=' . $commentId;
+                    $_465813820 = 'UPDATE reviews_comments_answers SET TEXT="' . $answer . '" WHERE COMMENT_ID=' . $commentId;
                     $DB->Query($_465813820);
                 } else {
-                    $_465813820 = 'INSERT reviews_comments_answers (COMMENT_ID,TEXT) VALUES (' . $commentId . ',"' . $_2127864769 . '")';
+                    $_465813820 = 'INSERT reviews_comments_answers (COMMENT_ID,TEXT) VALUES (' . $commentId . ',"' . $answer . '")';
                     $DB->Query($_465813820);
                 }
             }
